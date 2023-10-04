@@ -3,15 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Blocking
+  - Ground
   - Water
   - UI
-  - 
+  - Units
   - 
   - 
   - 
@@ -49,4 +50,7 @@ TagManager:
     locked: 0
   - name: Units
     uniqueID: 2709871493
+    locked: 0
+  - name: GUI
+    uniqueID: 4079869805
     locked: 0

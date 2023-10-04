@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerState))]
-public class PlayerMovement : BaseMovement
+[RequireComponent(typeof(EnemyState))]
+public class EnemyMovement : BaseMovement
 {
-    private PlayerState state;
+    private EnemyState state;
     private Rigidbody2D body;
     private float _startScale = 5;
     private float _fallScale = 8;
@@ -15,7 +15,7 @@ public class PlayerMovement : BaseMovement
     
     void Start() 
     {
-        state = GetComponent<PlayerState>();
+        state = GetComponent<EnemyState>();
         body = GetComponent<Rigidbody2D>();
         _isGrounded = true;
     }

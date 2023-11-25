@@ -11,10 +11,6 @@ public class PlayerActionController : BaseActionController
     {
         state = GetComponent<PlayerState>();
         animResolver = GetComponent<PlayerAnimResolver>();
-        foreach (PropertyInfo prop in state.GetType().GetProperties())
-        {
-            print($"{prop.Name}: {prop.GetValue(state)}");
-        }
         actionSpace = new Dictionary<string, Action>() {
             ["defaultAttack"] = gameObject.GetComponentInChildren<DefaultAttack>().Initialize(animResolver, ("curHP_d", -state.AD)),
         };

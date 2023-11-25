@@ -20,8 +20,23 @@ public enum ActionStatus {
     DIE,
 }
 
+public enum ProjectileStatus {
+    CAST,
+    MOVE,
+    HIT
+}
+
 public enum ErrCode
 {
     INVALID_CAST,
     OK
+}
+
+public enum Button {
+    JUMP,
+    DEFAULT_ATTACK,
+    SKILL_1,
+    SKILL_2,
+    SKILL_3,
+    SKILL_4
 }

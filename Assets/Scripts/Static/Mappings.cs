@@ -23,4 +23,13 @@ public static class Mappings
         [ActionStatus.ATTACK] = "draculaAttack",
         [ActionStatus.HURT] = "draculaHurt"
     };
+
+    public static Dictionary<Button, KeyCode> DefaultInputMap = new Dictionary<Button, KeyCode>() {
+        [Button.DEFAULT_ATTACK] = KeyCode.J,
+        [Button.SKILL_1] = KeyCode.Alpha1,
+        [Button.SKILL_2] = KeyCode.Alpha2,
+        [Button.SKILL_3] = KeyCode.Alpha3,
+        [Button.SKILL_4] = KeyCode.Alpha4,
+        [Button.JUMP] = KeyCode.Space
+    };
 }

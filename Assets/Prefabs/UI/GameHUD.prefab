@@ -2150,7 +2150,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAYER 2
+  m_text: PLAYER B
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9d080eeedd194e108e0ceadab3322eb, type: 2}
   m_sharedMaterial: {fileID: 2559182594663612049, guid: d9d080eeedd194e108e0ceadab3322eb, type: 2}
@@ -3880,7 +3880,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAYER 1
+  m_text: PLAYER A
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9d080eeedd194e108e0ceadab3322eb, type: 2}
   m_sharedMaterial: {fileID: 2559182594663612049, guid: d9d080eeedd194e108e0ceadab3322eb, type: 2}

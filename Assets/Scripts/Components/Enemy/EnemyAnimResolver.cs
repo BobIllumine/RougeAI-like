@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyAnimResolver : BaseAnimResolver
 {
     private Animator animator;
+    private Animation anims;
     void Start()
     {
         status = ActionStatus.IDLE;
         animator = GetComponent<Animator>();
+        anims = GetComponent<Animation>();
     }
 
     void Update()
@@ -33,5 +35,16 @@ public class EnemyAnimResolver : BaseAnimResolver
         foreach(string anim in Mappings.EnemyBools.Values)
             animator.SetBool(anim, false);
         animator.SetBool(Mappings.EnemyBools[status], value);
+    }
+    public override void ChangeFloat(float mult, string animName)
+    {
+        try
+        {
+            anims[animName].speed = mult;   
+        }
+        catch {
+            Debug.Log("fuck you");
+            return;
+        }
     }
 }

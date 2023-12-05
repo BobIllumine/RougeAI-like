@@ -4,6 +4,10 @@ using System;
 using UnityEngine;
 using System.Reflection;
 
+
+[RequireComponent(typeof(BaseActionController))]
+[RequireComponent(typeof(BaseMovementController))]
+[RequireComponent(typeof(BaseAnimResolver))]
 public abstract class BaseState : MonoBehaviour
 {
     private int _curHP, _maxHP; 
@@ -18,15 +22,40 @@ public abstract class BaseState : MonoBehaviour
         protected set { _maxHP = value; _curHP = _maxHP < _curHP ? _maxHP : _curHP; }
     }
 
+    public BaseActionController actionController { get; protected set; }
+    public BaseMovementController movementController { get; protected set; }
+    public BaseAnimResolver animResolver { get; protected set; }
     public int AD { get; protected set; }
     public float MS { get; protected set; }
     public float AS { get; protected set; }
     public float CR { get; protected set; }
     public Status status { get; protected set; }
+    public abstract void ApplyChange((PropertyInfo, object) stat);
     public abstract void ApplyChanges(Dictionary<PropertyInfo, object> other);
     public abstract void ApplyTimedChanges(Dictionary<PropertyInfo, object> other, float duration);
     public virtual IEnumerator TimedRevert(Dictionary<PropertyInfo, object> copy, float duration) {
         yield return new WaitForSeconds(duration);
         ApplyChanges(copy);
+    }
+
+    protected virtual void Update() 
+    {
+        switch(status) {
+            case Status.DISARMED:
+                actionController.canAttack = false;
+                break;
+            case Status.MUTE:
+                actionController.canCast = false;
+                break;
+            case Status.ENSNARED:
+                movementController.isMovable = false;
+                break;
+            case Status.STUNNED:
+                movementController.isMovable = false;
+                actionController.isActionable = false;
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-public class DefaultAttack : Action, IEffect, ITarget, IStateDependent
+public class Fireball : Action, IEffect, ITarget
 {
-    public BaseState state { get; protected set; }
     protected Dictionary<string, Func<object, object>> _statChangeMapping;
     // IEffect
     public int maxHP_d { get; protected set; }
@@ -75,15 +75,14 @@ public class DefaultAttack : Action, IEffect, ITarget, IStateDependent
         status = ActionStatus.ATTACK;
         targetStatus = ActionStatus.HURT;
     }
-    void Update() 
-    {
-        curHP_d = -state.AD;
-    }
-    public DefaultAttack Initialize(BaseAnimResolver animResolver, BaseState state) 
+    public Fireball Initialize(BaseAnimResolver animResolver, params (string, object)[] stat_kwargs) 
     {
         this.animResolver = animResolver;
-        this.state = state;
-        curHP_d = -state.AD;
+        foreach((string stat, object val) in stat_kwargs)
+        {
+            PropertyInfo prop = this.GetType().GetProperty(stat);
+            prop.SetValue(this, val);
+        }
         _statChangeMapping = new Dictionary<string, Func<object, object>>() {
             ["MaxHP"] = max_hp => (int)(maxHP_mult * (int)max_hp + maxHP_d),
             ["HP"] = hp => (int)(curHP_mult * (int)hp + curHP_d),

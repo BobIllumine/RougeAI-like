@@ -26,7 +26,7 @@ public static class Mappings
 
     public static Dictionary<Button, KeyCode> DefaultInputMap = new Dictionary<Button, KeyCode>() {
         [Button.DEFAULT_ATTACK] = KeyCode.J,
-        [Button.SKILL_1] = KeyCode.Alpha1,
+        [Button.SKILL_1] = KeyCode.L,
         [Button.SKILL_2] = KeyCode.Alpha2,
         [Button.SKILL_3] = KeyCode.Alpha3,
         [Button.SKILL_4] = KeyCode.Alpha4,

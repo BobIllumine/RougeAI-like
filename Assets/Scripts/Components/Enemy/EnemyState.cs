@@ -13,7 +13,12 @@ public class EnemyState : BaseState
     [SerializeField] private float defaultAS = 1.0f;
     [SerializeField] private float defaultCR = 0.0f;
     [SerializeField] private Status defaultStatus = Status.OK;
-
+    public override void ApplyChange((PropertyInfo, object) stat)
+    {
+        PropertyInfo prop = stat.Item1;
+        object value = stat.Item2;
+        prop.SetValue(this, value);
+    }
     public override void ApplyChanges(Dictionary<PropertyInfo, object> other)
     {
         foreach(KeyValuePair<PropertyInfo, object> pair in other)

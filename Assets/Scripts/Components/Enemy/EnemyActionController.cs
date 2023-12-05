@@ -11,7 +11,7 @@ public class EnemyActionController : BaseActionController
         state = GetComponent<EnemyState>();
         animResolver = GetComponent<EnemyAnimResolver>();
         actionSpace = new Dictionary<string, Action>() {
-            ["defaultAttack"] = gameObject.GetComponentInChildren<DefaultAttack>().Initialize(animResolver, ("curHP_d", state.AD)),
+            ["defaultAttack"] = gameObject.GetComponentInChildren<DefaultAttack>().Initialize(animResolver, state),
         };
     }
 

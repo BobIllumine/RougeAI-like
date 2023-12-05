@@ -15,7 +15,7 @@ public abstract class Action : MonoBehaviour
     protected virtual IEnumerator StartCooldown(float cr) 
     {
         isAvailable = false;
-
+    
         yield return new WaitForSeconds(cooldown * (1 - cr));
 
         isAvailable = true;

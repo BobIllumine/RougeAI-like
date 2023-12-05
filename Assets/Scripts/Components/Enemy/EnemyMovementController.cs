@@ -53,7 +53,30 @@ public class EnemyMovementController : BaseMovementController
         else if(dir < 0)
             animResolver.ChangeFacedDirection(-1);
     }
-    
+    public override IEnumerator ApplyVelocity(Vector2 velocity, float duration)
+    {
+        throw new System.NotImplementedException();
+    }
+    public override void ApplyForce(Vector2 force, ForceMode2D mode)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void ApplyVelocityFloat(float velocity, float duration)
+    {   
+        isMovable = false;
+        
+        var gravityScale = body.gravityScale;
+
+        body.velocity = new Vector2(transform.localScale.x * velocity, 0);
+
+        // yield return new WaitForSeconds(duration);
+
+        body.gravityScale = gravityScale;
+        
+        isMovable = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         isGrounded = other.gameObject.layer == 3;

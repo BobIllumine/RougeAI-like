@@ -5,28 +5,41 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerState))]
 [RequireComponent(typeof(PlayerAnimResolver))]
+[RequireComponent(typeof(PlayerMovementController))]
 public class PlayerActionController : BaseActionController
 {
-    void Start() 
+    void Start()
     {
         state = GetComponent<PlayerState>();
         animResolver = GetComponent<PlayerAnimResolver>();
+        movementController = GetComponent<PlayerMovementController>();
+        isActionable = true;
+        canAttack = true;
+        canCast = true;
+
         actionSpace = new Dictionary<string, Action>() {
-            ["defaultAttack"] = gameObject.GetComponentInChildren<DefaultAttack>().Initialize(animResolver, ("curHP_d", -state.AD)),
+            ["defaultAttack"] = gameObject.GetComponentInChildren<DefaultAttack>().Initialize(animResolver, state),
+            ["dash"] = gameObject.AddComponent<Dash>().Initialize(animResolver, state, movementController),
         };
     }
 
     public override void Do(string name)
     {
+        if(!isActionable || (!canCast && name != "defaultAttack") || (!canAttack && name == "defaultAttack"))
+            return;
         try
         {
+            movementController.isMovable = false;
             activeAction = actionSpace[name];
             activeAction.Fire(state.CR);
         }
-        catch(KeyNotFoundException)
+        catch(KeyNotFoundException e)
         {
-            Debug.Log("fuck you");
+            print(e);
+            movementController.isMovable = true;
+            Debug.Log("fuck you keynotfound");
             return;    
         }
+        movementController.isMovable = true;
     }
 }

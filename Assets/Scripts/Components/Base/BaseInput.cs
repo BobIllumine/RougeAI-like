@@ -6,5 +6,4 @@ public class BaseInput : MonoBehaviour
 {
     public BaseActionController actionController { get; protected set; }
     public BaseMovementController movementController { get; protected set; }
-       
 }

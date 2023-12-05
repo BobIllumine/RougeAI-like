@@ -11,9 +11,9 @@ public abstract class BaseAnimResolver : MonoBehaviour
     public abstract void AnimateBool(ActionStatus status, bool value);
     public virtual void ChangeStatus(ActionStatus newStatus)
     {
-        // print($"{status}->{newStatus}");
         status = newStatus;
     }
+    public abstract void ChangeFloat(float mult, string animName);
     public virtual void ChangeFacedDirection(int direction)
     {
         faceTowards = direction;

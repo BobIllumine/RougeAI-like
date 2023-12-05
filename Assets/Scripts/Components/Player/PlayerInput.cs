@@ -22,8 +22,10 @@ public class PlayerInput : BaseInput
         
         if(Input.GetKeyDown(buttons[Button.DEFAULT_ATTACK]))
             actionController.Do("defaultAttack");
-        
-        
+
+        if(Input.GetKeyDown(buttons[Button.SKILL_1]))
+            actionController.Do("dash");
+
         movementController.Move(Input.GetAxis("Horizontal"));
     }
     public void AddSkill(string name, Action action) 

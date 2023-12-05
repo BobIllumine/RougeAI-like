@@ -12,4 +12,15 @@ public interface IProjectile
 {
     public ActionStatus projectileStatus { get; }
     public BaseAnimResolver projectileAnimResolver { get; }
+    public GameObject projectile {get; }
+}
+
+public interface IStateDependent
+{
+    public BaseState state { get; }
+}
+
+public interface IMobility
+{
+    public BaseMovementController movementController { get; }
 }

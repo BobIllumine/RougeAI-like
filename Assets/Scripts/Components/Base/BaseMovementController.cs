@@ -6,9 +6,14 @@ public abstract class BaseMovementController : MonoBehaviour
 {
     public BaseState state { get; protected set; }
     public BaseAnimResolver animResolver { get; protected set; }
+    public BaseActionController actionController { get; protected set; }
+    public bool isMovable { get; set; }
     public bool isGrounded { get; protected set; }
     public Vector2 direction { get; protected set; }
     public abstract void Jump();
     public abstract void Move(float direction);
+    public abstract void ApplyForce(Vector2 force, ForceMode2D mode);
+    public abstract IEnumerator ApplyVelocity(Vector2 velocity, float duration);
+    public abstract void ApplyVelocityFloat(float velocity, float duration);
 
 }

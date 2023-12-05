@@ -291,7 +291,7 @@ MonoBehaviour:
   defaultMaxHP: 100
   defaultHP: 100
   defaultAD: 10
-  defaultMS: 400
+  defaultMS: 70
   defaultAS: 1
   defaultCR: 0
   defaultStatus: 0

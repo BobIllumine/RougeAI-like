@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class PlayerAnimResolver : BaseAnimResolver
 {
@@ -9,6 +10,7 @@ public class PlayerAnimResolver : BaseAnimResolver
     {
         status = ActionStatus.IDLE;
         animator = GetComponent<Animator>();
+        faceTowards = 1;
     }
 
     void Update()
@@ -33,5 +35,17 @@ public class PlayerAnimResolver : BaseAnimResolver
         foreach(string anim in Mappings.PlayerBools.Values)
             animator.SetBool(anim, false);
         animator.SetBool(Mappings.PlayerBools[status], value);
+    }
+
+    public override void ChangeFloat(float mult, string animName)
+    {
+        try
+        {
+            animator.SetFloat(animName, mult);
+        }
+        catch {
+            Debug.Log("fuck you");
+            return;
+        }
     }
 }

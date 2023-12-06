@@ -23,10 +23,10 @@ public interface IEffect
 
 public interface ITransient
 {
-    public float duration { get; protected set; }
+    public float duration { get; }
 }
 
 public interface IPeriodic 
 {
-    public float period { get; protected set; }
+    public float period { get; }
 }

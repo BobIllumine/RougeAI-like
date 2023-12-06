@@ -21,7 +21,7 @@ public class PlayerAnimResolver : BaseAnimResolver
     {
         ChangeStatus(status);
         foreach(string anim in Mappings.PlayerBools.Values)
-                animator.SetBool(anim, false);
+            animator.SetBool(anim, false);
     }
     public override void AnimateTrigger(ActionStatus status)
     {
@@ -44,7 +44,7 @@ public class PlayerAnimResolver : BaseAnimResolver
             animator.SetFloat(animName, mult);
         }
         catch {
-            Debug.Log("fuck you");
+            Debug.Log("bad luck kiddo");
             return;
         }
     }

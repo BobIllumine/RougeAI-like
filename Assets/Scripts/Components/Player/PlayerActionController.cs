@@ -20,6 +20,7 @@ public class PlayerActionController : BaseActionController
         actionSpace = new Dictionary<string, Action>() {
             ["defaultAttack"] = gameObject.GetComponentInChildren<DefaultAttack>().Initialize(animResolver, state),
             ["dash"] = gameObject.AddComponent<Dash>().Initialize(animResolver, state, movementController),
+            ["fireball"] = gameObject.AddComponent<Fireball>().Initialize(animResolver, state)
         };
     }
 
@@ -37,7 +38,7 @@ public class PlayerActionController : BaseActionController
         {
             print(e);
             movementController.isMovable = true;
-            Debug.Log("fuck you keynotfound");
+            Debug.Log("bad luck kiddo");
             return;    
         }
         movementController.isMovable = true;

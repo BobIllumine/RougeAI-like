@@ -62,21 +62,7 @@ public class EnemyMovementController : BaseMovementController
         throw new System.NotImplementedException();
     }
 
-    public override void ApplyVelocityFloat(float velocity, float duration)
-    {   
-        isMovable = false;
-        
-        var gravityScale = body.gravityScale;
-
-        body.velocity = new Vector2(transform.localScale.x * velocity, 0);
-
-        // yield return new WaitForSeconds(duration);
-
-        body.gravityScale = gravityScale;
-        
-        isMovable = true;
-    }
-
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
         isGrounded = other.gameObject.layer == 3;

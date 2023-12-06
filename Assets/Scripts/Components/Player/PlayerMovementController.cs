@@ -63,6 +63,7 @@ public class PlayerMovementController : BaseMovementController
         float jumpHeight = Mathf.Sqrt(state.MS) / 4;
         float jumpForce = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * body.gravityScale) * -2) * body.mass;
         body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        isGrounded = false;
     }
 
     public override void Move(float dir)
@@ -96,39 +97,19 @@ public class PlayerMovementController : BaseMovementController
         isDashing = false;
     }
 
-    public override void ApplyVelocityFloat(float velocity, float duration)
-    {   
-        StartCoroutine(bruh(velocity, duration));
-        
-    }
-    private IEnumerator bruh(float velocity, float duration) 
-    {
-        isDashing = true;
-        
-        var gravityScale = body.gravityScale;
-        
-        body.gravityScale = 0;
-
-        body.velocity = new Vector2(transform.localScale.x * velocity, 0);
-
-        yield return new WaitForSeconds(duration);
-
-        body.gravityScale = gravityScale;
-        
-        isDashing = false;
-    }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
-        isGrounded = other.gameObject.layer == 3;
+        isGrounded = other.gameObject.layer == 3 || other.gameObject.layer == 7;
         if(other.gameObject.layer == 7) 
         {
-            
+            var x = body.velocity.x;
+            var y = body.velocity.y;
+            body.velocity = Vector2.zero;
         }
             
     }
     private void OnCollisionExit2D(Collision2D other)
     {
-        isGrounded = !(other.gameObject.layer == 3);
+        isGrounded = !(other.gameObject.layer == 3 || other.gameObject.layer == 7);
     }
 }

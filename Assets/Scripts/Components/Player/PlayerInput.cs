@@ -25,6 +25,9 @@ public class PlayerInput : BaseInput
 
         if(Input.GetKeyDown(buttons[Button.SKILL_1]))
             actionController.Do("dash");
+        
+        if(Input.GetKeyDown(buttons[Button.SKILL_2]))
+            actionController.Do("fireball");
 
         movementController.Move(Input.GetAxis("Horizontal"));
     }

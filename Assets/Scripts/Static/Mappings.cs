@@ -24,6 +24,10 @@ public static class Mappings
         [ActionStatus.HURT] = "draculaHurt"
     };
 
+    public static Dictionary<ProjectileStatus, string> ProjectileTriggers = new Dictionary<ProjectileStatus, string>() {
+        [ProjectileStatus.CAST] = "cast",
+        [ProjectileStatus.HIT] = "hit"
+    };
     public static Dictionary<Button, KeyCode> DefaultInputMap = new Dictionary<Button, KeyCode>() {
         [Button.DEFAULT_ATTACK] = KeyCode.J,
         [Button.SKILL_1] = KeyCode.L,

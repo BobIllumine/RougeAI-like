@@ -14,8 +14,6 @@ public class AudioControl : MonoBehaviour
         {
             audioToggle.isOn = false;
         }
-
-
     }
 
     // Update is called once per frame
@@ -23,7 +21,7 @@ public class AudioControl : MonoBehaviour
     {
 
     }
-    public void ToggleAudio0nValueChange(bool audioIn)
+    public void ToggleAudioOnValueChange(bool audioIn)
     {
         if (audioIn)
             AudioListener.volume = 1;

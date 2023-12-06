@@ -14,6 +14,5 @@ public abstract class BaseMovementController : MonoBehaviour
     public abstract void Move(float direction);
     public abstract void ApplyForce(Vector2 force, ForceMode2D mode);
     public abstract IEnumerator ApplyVelocity(Vector2 velocity, float duration);
-    public abstract void ApplyVelocityFloat(float velocity, float duration);
 
 }

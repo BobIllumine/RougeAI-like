@@ -24,7 +24,7 @@ public class EnemyActionController : BaseActionController
         }
         catch(KeyNotFoundException)
         {
-            Debug.Log("fuck you");
+            Debug.Log("bad luck kiddo");
             return;    
         }
     }

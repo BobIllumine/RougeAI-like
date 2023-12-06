@@ -18,6 +18,7 @@ public static class Mappings
     public static Dictionary<ActionStatus, string> EnemyBools = new Dictionary<ActionStatus, string>() {
         [ActionStatus.RUN] = "draculaRun",
         [ActionStatus.JUMP] = "draculaJump",
+        [ActionStatus.FALL] = "draculaFall"
     };
     public static Dictionary<ActionStatus, string> EnemyTriggers = new Dictionary<ActionStatus, string>() {
         [ActionStatus.ATTACK] = "draculaAttack",
@@ -28,12 +29,20 @@ public static class Mappings
         [ProjectileStatus.CAST] = "cast",
         [ProjectileStatus.HIT] = "hit"
     };
-    public static Dictionary<Button, KeyCode> DefaultInputMap = new Dictionary<Button, KeyCode>() {
-        [Button.DEFAULT_ATTACK] = KeyCode.J,
-        [Button.SKILL_1] = KeyCode.L,
-        [Button.SKILL_2] = KeyCode.Alpha2,
-        [Button.SKILL_3] = KeyCode.Alpha3,
-        [Button.SKILL_4] = KeyCode.Alpha4,
+    public static Dictionary<Button, KeyCode> DefaultInputMapP1 = new Dictionary<Button, KeyCode>() {
+        [Button.DEFAULT_ATTACK] = KeyCode.K,
+        [Button.SKILL_1] = KeyCode.I,
+        [Button.SKILL_2] = KeyCode.J,
+        [Button.SKILL_3] = KeyCode.L,
+        [Button.SKILL_4] = KeyCode.O,
         [Button.JUMP] = KeyCode.Space
+    };
+    public static Dictionary<Button, KeyCode> DefaultInputMapP2 = new Dictionary<Button, KeyCode>() {
+        [Button.DEFAULT_ATTACK] = KeyCode.Keypad5,
+        [Button.SKILL_1] = KeyCode.Keypad4,
+        [Button.SKILL_2] = KeyCode.Keypad8,
+        [Button.SKILL_3] = KeyCode.Keypad6,
+        [Button.SKILL_4] = KeyCode.Keypad2,
+        [Button.JUMP] = KeyCode.Keypad0
     };
 }

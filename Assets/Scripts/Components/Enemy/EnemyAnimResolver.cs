@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class EnemyAnimResolver : BaseAnimResolver
 {
     private Animator animator;
-    private Animation anims;
     void Start()
     {
         status = ActionStatus.IDLE;
         animator = GetComponent<Animator>();
-        anims = GetComponent<Animation>();
+        faceTowards = 1;
     }
 
     void Update()
@@ -36,14 +36,15 @@ public class EnemyAnimResolver : BaseAnimResolver
             animator.SetBool(anim, false);
         animator.SetBool(Mappings.EnemyBools[status], value);
     }
+
     public override void ChangeFloat(float mult, string animName)
     {
         try
         {
-            anims[animName].speed = mult;   
+            animator.SetFloat(animName, mult);
         }
         catch {
-            Debug.Log("fuck you");
+            Debug.Log("bad luck kiddo");
             return;
         }
     }

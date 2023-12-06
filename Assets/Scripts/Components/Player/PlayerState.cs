@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.TerrainTools;
@@ -28,13 +29,14 @@ public class PlayerState : BaseState
             PropertyInfo prop = pair.Key;
             object value = pair.Value;
             prop.SetValue(this, value);
+            print($"other: {value}");
         }
     }
 
     public override void ApplyTimedChanges(Dictionary<PropertyInfo, object> other, float duration)
     {
         Dictionary<PropertyInfo, object> copy = new Dictionary<PropertyInfo, object>();
-        foreach(PropertyInfo prop in this.GetType().GetProperties())
+        foreach(PropertyInfo prop in GetBaseProperties())
             copy.Add(prop, prop.GetValue(this));
         ApplyChanges(other);
         StartCoroutine(TimedRevert(copy, duration));

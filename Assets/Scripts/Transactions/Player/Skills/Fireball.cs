@@ -30,7 +30,7 @@ public class Fireball : Action, IEffect, IProjectile, ITarget, IStateDependent, 
     public Status newStatus { get; protected set; }
     public Dictionary<PropertyInfo, object> GetModifiedStats(BaseState state)
     {
-        string[] statsArr = {"HP"};
+        string[] statsArr = {"HP", "status"};
         List<string> statChange = new List<string>(statsArr);
         Dictionary<PropertyInfo, object> stats = new Dictionary<PropertyInfo, object>();
         foreach(string stat in statChange)
@@ -46,6 +46,15 @@ public class Fireball : Action, IEffect, IProjectile, ITarget, IStateDependent, 
     public BaseAnimResolver targetAnimResolver { get; protected set; }
     public ActionStatus targetStatus { get; protected set; }
     // Action
+    public void OnHit(Collision2D other) 
+    {
+        if(other.gameObject.GetComponent<BaseState>() != null)
+        {
+            targetAnimResolver = other.gameObject.GetComponent<BaseAnimResolver>();
+            targetAnimResolver.AnimateTrigger(targetStatus);
+            UseOnState(other.gameObject.GetComponent<BaseState>(), cr);
+        }
+    }
     public override void Fire(float cr)
     {
         if(!isAvailable)
@@ -60,16 +69,6 @@ public class Fireball : Action, IEffect, IProjectile, ITarget, IStateDependent, 
     public override void UseOnState(BaseState state, float cr)
     {
         state.ApplyTimedChanges(GetModifiedStats(state), duration);
-    }
-    public void OnHit(Collider2D other)
-    {
-        print("hello");
-        if(other.gameObject.GetComponent<BaseState>() != null)
-        {
-            targetAnimResolver = other.gameObject.GetComponent<BaseAnimResolver>();
-            targetAnimResolver.AnimateTrigger(targetStatus);
-            UseOnState(other.gameObject.GetComponent<BaseState>(), cr);
-        }
     }
     void Start() 
     {
@@ -100,14 +99,15 @@ public class Fireball : Action, IEffect, IProjectile, ITarget, IStateDependent, 
         this.animResolver = animResolver;
         this.state = state;
         curHP_d = -(int)(state.AD * 0.2f) - 10;
-        print(curHP_d);
+        duration = 1;
         _statChangeMapping = new Dictionary<string, Func<object, object>>() {
             ["MaxHP"] = max_hp => (int)(maxHP_mult * (int)max_hp + maxHP_d),
             ["HP"] = hp => (int)(curHP_mult * (int)hp + curHP_d),
             ["AD"] = ad => (int)(AD_mult * (int)ad + AD_d),
             ["MS"] = ms => (float)(MS_mult * (float)ms + MS_d),
             ["AS"] = @as => (float)(AS_mult * (float)@as + AS_d),
-            ["CR"] = cr => (float)(CR_mult * (float)cr + CR_d)
+            ["CR"] = cr => (float)(CR_mult * (float)cr + CR_d),
+            ["status"] = _ => newStatus
         };
         return this;
     }

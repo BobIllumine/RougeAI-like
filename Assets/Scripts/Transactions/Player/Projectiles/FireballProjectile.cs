@@ -17,8 +17,7 @@ public class FireballProjectile : BaseProjectile
     void OnCollisionEnter2D(Collision2D other) {
         animResolver.AnimateTrigger(ProjectileStatus.HIT);
         if(other.gameObject.CompareTag("Enemy")) {
-            print("fuck");
-            gameObject.SendMessage("OnHit", other);
+            SendMessageUpwards("OnHit", other);
         }
     }
     void DestroyOnHit() {

@@ -11,4 +11,5 @@ public abstract class BaseProjectile : MonoBehaviour
     public Rigidbody2D body { get; protected set; }
     public ProjectileAnimResolver animResolver { get; protected set; }
     public abstract BaseProjectile Initialize(Vector2 direction, Vector2 velocity);
+
 }

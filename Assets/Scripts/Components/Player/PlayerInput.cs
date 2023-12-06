@@ -12,7 +12,7 @@ public class PlayerInput : BaseInput
     {
         actionController = GetComponent<PlayerActionController>();
         movementController = GetComponent<PlayerMovementController>();
-        buttons = Mappings.DefaultInputMap;
+        buttons = Mappings.DefaultInputMapP1;
         skillList = new List<string>();
     }
     void Update()
@@ -29,7 +29,7 @@ public class PlayerInput : BaseInput
         if(Input.GetKeyDown(buttons[Button.SKILL_2]))
             actionController.Do("fireball");
 
-        movementController.Move(Input.GetAxis("Horizontal"));
+        movementController.Move(Input.GetAxis("Horizontal_P1"));
     }
     public void AddSkill(string name, Action action) 
     {

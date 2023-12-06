@@ -26,22 +26,22 @@ public class PlayerMovementController : BaseMovementController
 
     void Update() 
     {
-        if(body.velocity.x == 0 && isGrounded) 
+        if(Mathf.Abs(body.velocity.x) <= 1e-3f && isGrounded) 
         {
             animResolver.AnimateIdle(ActionStatus.IDLE);
             actionController.canAttack = (state.status == Status.STUNNED || state.status == Status.DISARMED) ? false : true;
         }
-        if(body.velocity.x != 0 && isGrounded)
+        if(Mathf.Abs(body.velocity.x) > 1e-3f && isGrounded)
         {
             animResolver.AnimateBool(ActionStatus.RUN, true);
             actionController.canAttack = false;
         }
-        if(body.velocity.y > 0 && !isGrounded)
+        if(body.velocity.y > 1e-3f && !isGrounded)
         {
             animResolver.AnimateBool(ActionStatus.JUMP, true);
             actionController.canAttack = false;
         }
-        if(body.velocity.y < 0 && !isGrounded) 
+        if(body.velocity.y < -1e-3f && !isGrounded) 
         {
             animResolver.AnimateBool(ActionStatus.FALL, true);
             actionController.canAttack = false;

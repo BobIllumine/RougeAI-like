@@ -41,6 +41,12 @@ public abstract class BaseState : MonoBehaviour
     protected virtual void Update() 
     {
         switch(status) {
+            case Status.OK:
+                actionController.canAttack = true;
+                actionController.canCast = true;
+                actionController.isActionable = true;
+                movementController.isMovable = true;
+                break;
             case Status.DISARMED:
                 actionController.canAttack = false;
                 break;
@@ -57,5 +63,10 @@ public abstract class BaseState : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    protected PropertyInfo[] GetBaseProperties() 
+    {
+        return typeof(BaseState).GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public);
     }
 }

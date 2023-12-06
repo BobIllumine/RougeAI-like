@@ -49,10 +49,9 @@ public class EnemyState : BaseState
     
     public override void DestroyOnDeath()
     {
-        
         base.DestroyOnDeath();
     }
-    
+
 
     void Awake()
     {

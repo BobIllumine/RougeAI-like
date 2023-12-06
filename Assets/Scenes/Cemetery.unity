@@ -260,8 +260,8 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
+    x: 0.03125
+    y: -0.21111111
     width: 1
     height: 1
   near clip plane: 0.3
@@ -3301,6 +3301,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb04099278544480cb2f64261a92fb49, type: 3}
+--- !u!1 &677938010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4370243166233334108, guid: fb04099278544480cb2f64261a92fb49, type: 3}
+  m_PrefabInstance: {fileID: 677938009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &700842248
 GameObject:
   m_ObjectHideFlags: 0
@@ -5157,6 +5162,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.056
       objectReference: {fileID: 0}
+    - target: {fileID: 5629675917850579412, guid: 7d621645b8305565488c99861f56f18b, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 677938010}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5210,6 +5219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3158409404103012623, guid: 873b1a8119b81623c9fc8fe232789d29, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 677938010}
     - target: {fileID: 6986117717716457421, guid: 873b1a8119b81623c9fc8fe232789d29, type: 3}
       propertyPath: m_Name
       value: Player

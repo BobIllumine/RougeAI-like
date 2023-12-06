@@ -74,7 +74,7 @@ public class SkillSelector : MonoBehaviour
         if (chosenSkills.Contains(toggleName))
         {
             chosenSkills.Remove(toggleName);
-            if (chosenSkills.Count == chosenSkills.Count - 1)
+            if (chosenSkills.Count == SkillImages.Length - 1)
             {
 
                 Toggle[] toggles = GetComponentsInChildren<Toggle>();
@@ -91,7 +91,7 @@ public class SkillSelector : MonoBehaviour
             chosenSkills.Add(toggleName);
         }
 
-        if (chosenSkills.Count == chosenSkills.Count)
+        if (chosenSkills.Count == SkillImages.Length)
         {
 
             Toggle[] toggles = GetComponentsInChildren<Toggle>();

@@ -14,6 +14,7 @@ public class PlayerState : BaseState
     [SerializeField] private float defaultAS = 1.0f;
     [SerializeField] private float defaultCR = 0.0f;
     [SerializeField] private Status defaultStatus = Status.OK;
+    [SerializeField] public GameObject deathScreen;
 
     public override void ApplyChange((PropertyInfo, object) stat)
     {
@@ -24,7 +25,7 @@ public class PlayerState : BaseState
 
     public override void ApplyChanges(Dictionary<PropertyInfo, object> other)
     {
-        foreach(KeyValuePair<PropertyInfo, object> pair in other)
+        foreach (KeyValuePair<PropertyInfo, object> pair in other)
         {
             PropertyInfo prop = pair.Key;
             object value = pair.Value;
@@ -36,20 +37,22 @@ public class PlayerState : BaseState
     public override void ApplyTimedChanges(Dictionary<PropertyInfo, object> other, float duration)
     {
         Dictionary<PropertyInfo, object> copy = new Dictionary<PropertyInfo, object>();
-        foreach(PropertyInfo prop in GetBaseProperties())
+        foreach (PropertyInfo prop in GetBaseProperties())
             copy.Add(prop, prop.GetValue(this));
         ApplyChanges(other);
         StartCoroutine(TimedRevert(copy, duration));
     }
-    
-    protected override void Update() {
+
+    protected override void Update()
+    {
         base.Update();
         animResolver.ChangeFloat(AS, "attackSpeed");
     }
 
     public override void DestroyOnDeath()
     {
-        
+        deathScreen.SetActive(true);
+        deathScreen.transform.Find("PlayerAWin").gameObject.SetActive(true);
         base.DestroyOnDeath();
     }
 

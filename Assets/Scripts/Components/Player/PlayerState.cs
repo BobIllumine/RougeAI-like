@@ -52,7 +52,7 @@ public class PlayerState : BaseState
     public override void DestroyOnDeath()
     {
         deathScreen.SetActive(true);
-        deathScreen.transform.Find("PlayerAWin").gameObject.SetActive(true);
+        deathScreen.transform.Find("PlayerBWin").gameObject.SetActive(true);
         base.DestroyOnDeath();
     }
 

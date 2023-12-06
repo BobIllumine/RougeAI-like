@@ -47,7 +47,7 @@ public class SkillSelector : MonoBehaviour
             GameObject toggle = Instantiate(SkillCard);
             toggle.transform.SetParent(SkillGrid.transform);
             toggle.name = skillIds[i];
-            Sprite skillImage = Resources.Load<Sprite>("UI/Skills/" + skillIds[i]);
+            Sprite skillImage = Resources.Load<Sprite>("Sprites/UI/Skills/" + skillIds[i]);
             toggle.transform.Find("SkillImage").GetComponent<Image>().sprite = skillImage;
             toggle.transform.Find("SkillImage").Find("SkillNameText").GetComponent<TextMeshProUGUI>().text = skillNames[skillIds[i]];
             toggle.transform.Find("Description").GetComponent<TextMeshProUGUI>().text = descriptions[skillIds[i]];

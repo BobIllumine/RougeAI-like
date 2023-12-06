@@ -268,7 +268,7 @@ Camera:
   far clip plane: 1000
   field of view: 13.925581
   orthographic: 1
-  orthographic size: 11.157999
+  orthographic size: 13.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3208,27 +3208,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1164773167264046181, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1164773167264046181, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1164773167264046181, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 175
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1164773167264046181, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 258.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1164773167264046181, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 585.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1164773167264046181, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -129.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1555546664659316794, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: player
@@ -3284,11 +3284,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6573606292923189694, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6573606292923189694, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6644273468073442923, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_Name
@@ -3300,15 +3300,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6644273468073442923, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7741219333581340887, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7741219333581340887, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8113506152851585883, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: m_AnchoredPosition.x

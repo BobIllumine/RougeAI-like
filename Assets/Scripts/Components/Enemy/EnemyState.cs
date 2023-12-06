@@ -47,6 +47,13 @@ public class EnemyState : BaseState
         animResolver.ChangeFloat(AS, "attackSpeed");
     }
     
+    public override void DestroyOnDeath()
+    {
+        
+        base.DestroyOnDeath();
+    }
+    
+
     void Awake()
     {
         movementController = GetComponent<EnemyMovementController>();

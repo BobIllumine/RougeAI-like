@@ -38,8 +38,18 @@ public abstract class BaseState : MonoBehaviour
         ApplyChanges(copy);
     }
 
+    public virtual void DestroyOnDeath() 
+    {
+        Destroy(gameObject);
+    }
     protected virtual void Update() 
     {
+        if(HP <= 0)
+        {
+            animResolver.AnimateTrigger(ActionStatus.DIE);
+            return;
+        }
+
         switch(status) {
             case Status.OK:
                 actionController.canAttack = true;

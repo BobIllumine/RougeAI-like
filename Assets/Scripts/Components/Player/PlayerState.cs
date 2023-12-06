@@ -46,7 +46,13 @@ public class PlayerState : BaseState
         base.Update();
         animResolver.ChangeFloat(AS, "attackSpeed");
     }
-    
+
+    public override void DestroyOnDeath()
+    {
+        
+        base.DestroyOnDeath();
+    }
+
     void Awake()
     {
         movementController = GetComponent<PlayerMovementController>();

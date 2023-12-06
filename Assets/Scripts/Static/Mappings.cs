@@ -22,7 +22,8 @@ public static class Mappings
     };
     public static Dictionary<ActionStatus, string> EnemyTriggers = new Dictionary<ActionStatus, string>() {
         [ActionStatus.ATTACK] = "draculaAttack",
-        [ActionStatus.HURT] = "draculaHurt"
+        [ActionStatus.HURT] = "draculaHurt",
+        [ActionStatus.DIE] = "draculaDeath"
     };
 
     public static Dictionary<ProjectileStatus, string> ProjectileTriggers = new Dictionary<ProjectileStatus, string>() {

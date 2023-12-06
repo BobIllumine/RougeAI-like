@@ -4015,12 +4015,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3158409404103012623, guid: 873b1a8119b81623c9fc8fe232789d29, type: 3}
   m_PrefabInstance: {fileID: 354975472}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 354975474}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 403627b92d28e17759460f0184006aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &354975474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6986117717716457421, guid: 873b1a8119b81623c9fc8fe232789d29, type: 3}
+  m_PrefabInstance: {fileID: 354975472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &395427247
 GameObject:
   m_ObjectHideFlags: 0
@@ -5249,12 +5254,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5629675917850579412, guid: 7d621645b8305565488c99861f56f18b, type: 3}
   m_PrefabInstance: {fileID: 544001274}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 544001276}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dfe3b6d43e48adceb1f7c1cf40d2f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &544001276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3433956807928830647, guid: 7d621645b8305565488c99861f56f18b, type: 3}
+  m_PrefabInstance: {fileID: 544001274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &640313276
 GameObject:
   m_ObjectHideFlags: 0
@@ -5369,8 +5379,8 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.03125
-    y: -0.21111111
+    x: -0.120312504
+    y: -0.3111111
     width: 1
     height: 1
   near clip plane: 0.3
@@ -5724,6 +5734,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 120697268917388156, guid: fb04099278544480cb2f64261a92fb49, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 544001276}
     - target: {fileID: 1555546664659316794, guid: fb04099278544480cb2f64261a92fb49, type: 3}
       propertyPath: player
       value: 
@@ -5792,6 +5806,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9118459945220113491, guid: fb04099278544480cb2f64261a92fb49, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 354975474}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

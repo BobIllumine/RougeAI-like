@@ -24,15 +24,16 @@ public class PlayerInput : BaseInput
             actionController.Do("defaultAttack");
 
         if(Input.GetKeyDown(buttons[Button.SKILL_1]))
-            actionController.Do("dash");
+            actionController.Do(skillList[0]);
         
         if(Input.GetKeyDown(buttons[Button.SKILL_2]))
-            actionController.Do("fireball");
+            actionController.Do(skillList[1]);
 
         movementController.Move(Input.GetAxis("Horizontal_P1"));
     }
     public void AddSkill(string name, Action action) 
     {
+        print(actionController);
         actionController.AddAction(name, action);
         skillList.Add(name);
     }

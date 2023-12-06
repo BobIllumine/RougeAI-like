@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class FireballProjectile : BaseProjectile
 {
@@ -16,7 +17,8 @@ public class FireballProjectile : BaseProjectile
     }
     void OnCollisionEnter2D(Collision2D other) {
         animResolver.AnimateTrigger(ProjectileStatus.HIT);
-        if(other.gameObject.CompareTag("Enemy")) {
+        if((transform.parent.gameObject.CompareTag("Player") && other.gameObject.CompareTag("Enemy")) 
+        || transform.parent.gameObject.CompareTag("Enemy") && other.gameObject.CompareTag("Player")) {
             SendMessageUpwards("OnHit", other);
         }
     }

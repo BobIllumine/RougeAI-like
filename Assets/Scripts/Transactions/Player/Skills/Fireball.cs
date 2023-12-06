@@ -87,8 +87,10 @@ public class Fireball : Action, IEffect, IProjectile, ITarget, IStateDependent, 
         newStatus = Status.STUNNED;
         status = ActionStatus.ATTACK;
         targetStatus = ActionStatus.HURT;
-        cooldown = 3;
+
+        cooldown = 7;
         isAvailable = true;
+        
         projectile = Resources.Load<GameObject>("Prefabs/Projectiles/Fireball");
     }
     void Update() {

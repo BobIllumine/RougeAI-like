@@ -20,4 +20,5 @@ public abstract class Action : MonoBehaviour
 
         isAvailable = true;
     }
+
 }

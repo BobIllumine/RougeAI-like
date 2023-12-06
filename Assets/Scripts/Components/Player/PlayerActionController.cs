@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerMovementController))]
 public class PlayerActionController : BaseActionController
 {
-    void Start()
+    void Awake()
     {
         state = GetComponent<PlayerState>();
         animResolver = GetComponent<PlayerAnimResolver>();
@@ -19,8 +19,6 @@ public class PlayerActionController : BaseActionController
 
         actionSpace = new Dictionary<string, Action>() {
             ["defaultAttack"] = gameObject.GetComponentInChildren<DefaultAttack>().Initialize(animResolver, state),
-            ["dash"] = gameObject.AddComponent<Dash>().Initialize(animResolver, state, movementController),
-            ["fireball"] = gameObject.AddComponent<Fireball>().Initialize(animResolver, state)
         };
     }
 

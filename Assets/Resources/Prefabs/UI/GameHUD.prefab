@@ -2864,6 +2864,7 @@ MonoBehaviour:
   SkillImages:
   - {fileID: 7134805749078893793}
   - {fileID: 6851962775761622044}
+  character: {fileID: 6986117717716457421, guid: 873b1a8119b81623c9fc8fe232789d29, type: 3}
 --- !u!1 &3193832117446945092
 GameObject:
   m_ObjectHideFlags: 0
@@ -4597,6 +4598,7 @@ MonoBehaviour:
   SkillImages:
   - {fileID: 3982969274738533845}
   - {fileID: 7350530571027731897}
+  character: {fileID: 3433956807928830647, guid: 7d621645b8305565488c99861f56f18b, type: 3}
 --- !u!1 &4434637380432577339
 GameObject:
   m_ObjectHideFlags: 0

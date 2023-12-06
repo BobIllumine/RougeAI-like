@@ -30,7 +30,6 @@ public class PlayerState : BaseState
             PropertyInfo prop = pair.Key;
             object value = pair.Value;
             prop.SetValue(this, value);
-            print($"other: {value}");
         }
     }
 
@@ -53,6 +52,7 @@ public class PlayerState : BaseState
     {
         deathScreen.SetActive(true);
         deathScreen.transform.Find("PlayerBWin").gameObject.SetActive(true);
+
         base.DestroyOnDeath();
     }
 

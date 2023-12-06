@@ -19,8 +19,6 @@ public class EnemyActionController : BaseActionController
 
         actionSpace = new Dictionary<string, Action>() {
             ["defaultAttack"] = gameObject.GetComponentInChildren<DefaultAttack>().Initialize(animResolver, state),
-            ["dash"] = gameObject.AddComponent<Dash>().Initialize(animResolver, state, movementController),
-            ["fireball"] = gameObject.AddComponent<Fireball>().Initialize(animResolver, state)
         };
     }
 

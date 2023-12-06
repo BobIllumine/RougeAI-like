@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class SkillSelector : MonoBehaviour
 {
     [SerializeField] public GameObject SkillCard;
 
     [SerializeField] public GameObject[] SkillImages;
+    [SerializeField] public GameObject character;
     private string[] skillIds = new string[] { "Dash", "Explosion", "Fireball", "Heal", "KnifeToss", "Lai", "Rage", "Stomp", "SwordSlash", "VampireSlash" };
     private List<string> chosenSkills = new List<string>();
     private Dictionary<string, string> descriptions = new Dictionary<string, string>()
@@ -111,5 +113,49 @@ public class SkillSelector : MonoBehaviour
             SkillImages[i].transform.Find(chosenSkills[i]).gameObject.SetActive(true);
         }
 
+        if(character.CompareTag("Enemy")) 
+        {
+            EnemyInput input = character.GetComponent<EnemyInput>();
+            EnemyAnimResolver animResolver = character.GetComponent<EnemyAnimResolver>();
+            EnemyMovementController movementController = character.GetComponent<EnemyMovementController>();
+            EnemyState state = character.GetComponent<EnemyState>();
+            foreach(string skill in chosenSkills)
+            {
+                if(skill == "Dash")
+                    input.AddSkill(skill, input.gameObject.AddComponent<Dash>().Initialize(animResolver, state, movementController)); 
+                if(skill == "Stomp")
+                    input.AddSkill(skill, input.gameObject.AddComponent<Stomp>().Initialize(animResolver, state, movementController));
+                if(skill == "VampireSlash")
+                    input.AddSkill(skill, input.gameObject.AddComponent<VampireSlash>().Initialize(animResolver, state));
+                if(skill == "Heal")
+                    input.AddSkill(skill, input.gameObject.AddComponent<Heal>().Initialize(animResolver, state));
+                if(skill == "Rage")
+                    input.AddSkill(skill, input.gameObject.AddComponent<Rage>().Initialize(animResolver, state));
+                if(skill == "Fireball")
+                    input.AddSkill(skill, input.gameObject.AddComponent<Fireball>().Initialize(animResolver, state));
+            }
+        }
+        else
+        {
+            PlayerInput input = character.GetComponent<PlayerInput>();
+            PlayerAnimResolver animResolver = character.GetComponent<PlayerAnimResolver>();
+            PlayerMovementController movementController = character.GetComponent<PlayerMovementController>();
+            PlayerState state = character.GetComponent<PlayerState>();
+            foreach(string skill in chosenSkills)
+            {
+                if(skill == "Dash")
+                    input.AddSkill(skill, input.gameObject.AddComponent<Dash>().Initialize(animResolver, state, movementController)); 
+                if(skill == "Stomp")
+                    input.AddSkill(skill, input.gameObject.AddComponent<Stomp>().Initialize(animResolver, state, movementController));
+                if(skill == "VampireSlash")
+                    input.AddSkill(skill, input.gameObject.AddComponent<VampireSlash>().Initialize(animResolver, state));
+                if(skill == "Heal")
+                    input.AddSkill(skill, input.gameObject.AddComponent<Heal>().Initialize(animResolver, state));
+                if(skill == "Rage")
+                    input.AddSkill(skill, input.gameObject.AddComponent<Rage>().Initialize(animResolver, state));
+                if(skill == "Fireball")
+                    input.AddSkill(skill, input.gameObject.AddComponent<Fireball>().Initialize(animResolver, state));
+            }
+        }
     }
 }

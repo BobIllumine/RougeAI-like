@@ -46,4 +46,13 @@ public static class Mappings
         [Button.SKILL_4] = KeyCode.Keypad2,
         [Button.JUMP] = KeyCode.Keypad0
     };
+
+    public static Dictionary<string, Type> SkillMap = new Dictionary<string, Type>() {
+        ["Dash"] = typeof(Dash),
+        ["Rage"] = typeof(Rage),
+        ["Heal"] = typeof(Heal),
+        ["VampireSlash"] = typeof(VampireSlash),
+        ["Fireball"] = typeof(Fireball),
+        ["Stomp"] = typeof(Stomp)
+    };
 }

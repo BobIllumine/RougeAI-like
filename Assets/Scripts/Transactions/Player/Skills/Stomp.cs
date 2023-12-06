@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-public class Dash : Action, IMobility, IStateDependent
+public class Stomp : Action, IMobility, IStateDependent
 {
     public BaseState state { get; protected set; }
     public BaseMovementController movementController { get; protected set; }
@@ -16,13 +16,13 @@ public class Dash : Action, IMobility, IStateDependent
             
         PropertyInfo ms = state.GetType().GetProperty("MS");
 
-        state.ApplyChange((ms, state.MS * 5));
+        state.ApplyChange((ms, state.MS * 10));
         
-        StartCoroutine(movementController.ApplyVelocity(new Vector2(state.MS * animResolver.faceTowards, 0), 0.1f));
+        StartCoroutine(movementController.ApplyVelocity(new Vector2(0, -state.MS), 0.1f));
         
         animResolver.AnimateBool(status, true);
         
-        state.ApplyChange((ms, state.MS / 5));
+        state.ApplyChange((ms, state.MS / 10));
 
         StartCoroutine(StartCooldown(cr));
     }
@@ -34,9 +34,9 @@ public class Dash : Action, IMobility, IStateDependent
     {
         isAvailable = true;
         status = ActionStatus.RUN;
-        cooldown = 2;
+        cooldown = 3;
     }
-    public Dash Initialize(BaseAnimResolver animResolver, BaseState state, BaseMovementController movementController) 
+    public Stomp Initialize(BaseAnimResolver animResolver, BaseState state, BaseMovementController movementController) 
     {
         this.animResolver = animResolver;
         this.state = state;

@@ -32,7 +32,6 @@ public class EnemyState : BaseState
             PropertyInfo prop = pair.Key;
             object value = pair.Value;
             prop.SetValue(this, value);
-            print($"other: {value}");
         }
     }
 

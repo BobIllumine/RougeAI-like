@@ -17,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Town.unity
     guid: 89f6633863de050dfb40e7f4206cc71b
+  - enabled: 1
+    path: Assets/Scenes/Caves.unity
+    guid: 69b8cc423a534410fb860d8a9f6c50c7
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 836dc45c515de00eb8b66c1947ddea99
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6287f54fdac714b4e96c1a6454e6b3b3, type: 2}
